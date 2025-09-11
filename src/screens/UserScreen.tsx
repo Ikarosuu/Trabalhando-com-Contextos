@@ -1,22 +1,17 @@
-import { View, Text, TextInput, Button } from "react-native";
-import { useState } from 'react'
-import { StackNavigationProp } from '@react-navigation/stack'
+import { View, Text } from 'react-native';
+import { RouteProp } from '@react-navigation/native'
+import { RootStackParamList } from '../../App';
 
-export default function UserScreen(){
-    const [inputText, setinputText] = useState("")
+type UserScreenProps = {
+    route: RouteProp<RootStackParamList, 'User'>
+}
 
-    const navigateToUserScreen = () => {
+export default function UserScreen({route}: UserScreenProps) {
+    const { username } = route.params
 
-    }
-    
-    return(
+    return (
         <View>
-            <TextInput 
-            placeholder="Digite seu nome..." 
-            value={inputText}
-            onChangeText={(text)=> setinputText(text)}
-        />
-        <Button title="Logar" onPress={navigateToUserScreen}/>
+            <Text>Bom vindo {username}</Text>
         </View>
-    )
+    );
 }
