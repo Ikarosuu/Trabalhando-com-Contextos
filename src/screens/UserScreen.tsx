@@ -11,7 +11,7 @@ export default function UserScreen({route}: UserScreenProps) {
 
     return (
         <View>
-            <Text>Bom vindo {username}</Text>
+            <Text>Bem vindo: {username}</Text>
         </View>
     );
 }
