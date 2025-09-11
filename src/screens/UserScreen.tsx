@@ -14,11 +14,12 @@ export default function UserScreen({route}: UserScreenProps) {
 
     // usando contexto
     const UserContextValue = useContext(UserContext)
-    const nome = UserContextValue.nome
+    const nome = UserContextValue?.nome || 'Nenhum nome saldo'
 
     return (
         <View>
-            <Text>Bem vindo: {username}</Text>
+            <Text style={{fontSize: 32}}>Rota: {username}</Text>
+            <Text style={{fontSize: 32}}>Context API: {nome}</Text>
         </View>
     );
 }
