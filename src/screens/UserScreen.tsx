@@ -13,13 +13,15 @@ export default function UserScreen({route}: UserScreenProps) {
     const { username } = route.params
 
     // usando contexto
-    const UserContextValue = useContext(UserContext)
-    const nome = UserContextValue?.nome || 'Nenhum nome saldo'
+    const userContextValue = useContext(UserContext)
+    const nomeDinamico = userContextValue?.loginName || 'Nenhum nome salvo'
+    const nomeEstatico = userContextValue?.nome || 'Nenhum nome fornecido'
 
     return (
         <View>
-            <Text style={{fontSize: 32}}>Rota: {username}</Text>
-            <Text style={{fontSize: 32}}>Context API: {nome}</Text>
+            <Text style={{fontSize: 32}}>Nome da rota: {username}</Text>
+            <Text style={{fontSize: 32}}>Nome estatico: {nomeEstatico}</Text>
+            <Text style={{fontSize: 32}}>Nome Donâmico: {nomeDinamico}</Text>
         </View>
     );
 }
